@@ -13,7 +13,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className={`${font.className} dark bg-background antialiased`}>
-        <main className="container">{children}</main>
+        <main className="container h-full">{children}</main>
         <footer className="absolute bottom-0 w-full">
           <Waves />
         </footer>
