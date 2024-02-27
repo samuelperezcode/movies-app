@@ -1,6 +1,5 @@
 "use client";
 
-import {ArrowLeftIcon, ArrowRightIcon} from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
 import {usePathname, useSearchParams} from "next/navigation";

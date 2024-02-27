@@ -12,6 +12,20 @@ export const getAllMovies = async () => {
   }
 };
 
+export const getMovieById = async (id: string) => {
+  try {
+    const movie = await db.movie.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return movie;
+  } catch (error) {
+    return null;
+  }
+};
+
 const ITEMS_PER_PAGE = 8;
 
 export const getFilteredMovies = async (currentPage: number) => {

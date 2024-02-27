@@ -1,14 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface CardProps {
+  id: string;
   title: string;
   publishing_year: number;
   cover: string;
 }
 
-export function Card({title, cover, publishing_year}: CardProps) {
+export function Card({id, title, cover, publishing_year}: CardProps) {
   return (
-    <article className="flex h-[504px] w-[282px] flex-col items-start rounded-xl bg-card">
+    <Link
+      className="flex h-[504px] w-[282px] flex-col items-start rounded-xl bg-card"
+      href={`/${id}`}
+    >
       <div className="mx-auto mt-2 h-[400px] w-[266px]">
         <Image
           alt={`cover of ${title}`}
@@ -22,6 +27,6 @@ export function Card({title, cover, publishing_year}: CardProps) {
         <h3 className="text-xl font-medium leading-8">{title}</h3>
         <p className="text-sm font-normal leading-6">{publishing_year.toString()}</p>
       </div>
-    </article>
+    </Link>
   );
 }

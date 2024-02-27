@@ -11,7 +11,7 @@ export async function MovieList({currentPage}: MovieListProps) {
   return (
     <ul className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {movies?.map(({id, cover, publishing_year, title}) => (
-        <Card key={id} cover={cover} publishing_year={publishing_year} title={title} />
+        <Card key={id} cover={cover} id={id} publishing_year={publishing_year} title={title} />
       ))}
     </ul>
   );
