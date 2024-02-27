@@ -2,7 +2,6 @@ import type {Metadata} from "next";
 
 import "./globals.css";
 import {font} from "@/lib/fonts";
-import {Waves} from "@/components/waves";
 
 export const metadata: Metadata = {
   title: "Moviefy | ",
@@ -12,12 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={`${font.className} dark bg-background antialiased`}>
-        <main className="container h-full">{children}</main>
-        <footer className="absolute bottom-0 w-full">
-          <Waves />
-        </footer>
-      </body>
+      <body className={`${font.className} dark h-full bg-background antialiased`}>{children}</body>
     </html>
   );
 }

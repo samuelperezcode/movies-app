@@ -1,21 +1,31 @@
 import Link from "next/link";
 import {PlusCircle} from "lucide-react";
+import {Suspense} from "react";
 
-import {Card} from "@/components/card";
 import {LogoutForm} from "@/components/logout-form";
 import {buttonVariants} from "@/components/ui/button";
 import {cn} from "@/lib/utils";
-import {getSession} from "@/utils/actions/auth";
-import {getAllMovies} from "@/utils/services/movies";
+import {getMoviesPages} from "@/utils/services/movies";
 
-export default async function HomePage() {
-  const session = await getSession();
-  const movies = await getAllMovies();
+import {MovieList} from "./_components/movie-list";
+import Pagination from "./_components/pagination";
 
-  const emptyState = movies == null || movies.length === 0;
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+
+  const totalPages = await getMoviesPages();
+
+  const emptyState = totalPages == null || totalPages === 0;
 
   return (
-    <main className="h-full">
+    <>
       {emptyState ? (
         <section className="grid h-full place-content-center gap-10">
           <h2 className=" text-5xl font-semibold leading-[56px]">Your movie list is empty</h2>
@@ -40,13 +50,14 @@ export default async function HomePage() {
             <LogoutForm />
           </header>
 
-          <ul>
-            {movies.map(({id, cover, publishing_year, title}) => (
-              <Card key={id} cover={cover} publishing_year={publishing_year} title={title} />
-            ))}
-          </ul>
+          <Suspense key={currentPage} fallback={<p>Loading...</p>}>
+            <MovieList currentPage={currentPage} />
+          </Suspense>
+          <div className="flex w-full justify-center pt-[120px]">
+            <Pagination totalPages={totalPages} />
+          </div>
         </>
       )}
-    </main>
+    </>
   );
 }
