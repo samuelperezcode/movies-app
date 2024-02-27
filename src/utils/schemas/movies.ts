@@ -12,3 +12,5 @@ export const MovieSchema = z.object({
 });
 
 export const CreateMovieSchema = MovieSchema.omit({id: true});
+
+export const UpdateMovieSchema = MovieSchema.omit({id: true});

@@ -6,9 +6,10 @@ interface InputProps {
   type: string;
   isRequired: boolean;
   onError: boolean;
+  defaultValue?: string | number;
 }
 
-export function Input({type, name, placeholder, isRequired, onError}: InputProps) {
+export function Input({type, name, placeholder, isRequired, onError, defaultValue}: InputProps) {
   return (
     <input
       className={cn(
@@ -16,6 +17,7 @@ export function Input({type, name, placeholder, isRequired, onError}: InputProps
         onError &&
           "text-destructive focus:border focus:border-destructive focus:bg-white focus:outline-none active:border active:border-destructive active:bg-white active:outline-none",
       )}
+      defaultValue={defaultValue}
       name={name}
       placeholder={placeholder}
       required={isRequired}

@@ -73,3 +73,22 @@ export const createMovie = async ({title, cover, publishing_year}: Omit<Movie, "
     return null;
   }
 };
+
+export const editMovie = async ({id, title, cover, publishing_year}: Movie) => {
+  try {
+    const movie = await db.movie.update({
+      where: {
+        id,
+      },
+      data: {
+        title,
+        cover,
+        publishing_year,
+      },
+    });
+
+    return movie;
+  } catch (error) {
+    return null;
+  }
+};
