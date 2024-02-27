@@ -6,6 +6,8 @@ import {getMovieById} from "@/utils/services/movies";
 import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/ui/button";
 
+import {DeleteForm} from "./update/_components/delete-form";
+
 export default async function MoviePage({params: {movieId}}: {params: {movieId: string}}) {
   const movie = await getMovieById(movieId);
 
@@ -25,9 +27,7 @@ export default async function MoviePage({params: {movieId}}: {params: {movieId: 
           <Link className={cn(buttonVariants())} href={`/${movie.id}/update`}>
             Edit movie
           </Link>
-          <Link className={cn(buttonVariants({variant: "outline"}))} href={`/${movie.id}/update`}>
-            Delete movie
-          </Link>
+          <DeleteForm id={movie.id} />
         </div>
         <Link className={cn(buttonVariants({variant: "link"}))} href="/">
           Go back to movies

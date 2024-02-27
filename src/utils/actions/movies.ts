@@ -3,9 +3,7 @@
 import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
 
-import {db} from "@/lib/db";
-
-import {createMovie, editMovie} from "../services/movies";
+import {createMovie, editMovie, removeMovie} from "../services/movies";
 import {CreateMovieSchema, UpdateMovieSchema} from "../schemas/movies";
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -52,8 +50,6 @@ export const updateMovie = async (id: string, prevState: State, formData: FormDa
   });
 
   if (!validatedFields.success) {
-    console.log({errors: validatedFields.error.flatten().fieldErrors});
-
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: "Failed to Update Movie.",
@@ -75,16 +71,8 @@ export const updateMovie = async (id: string, prevState: State, formData: FormDa
 };
 
 export async function deleteMovie(id: string) {
-  try {
-    await db.movie.delete({
-      where: {
-        id,
-      },
-    });
-    revalidatePath("/");
+  const result = await removeMovie(id);
 
-    return {message: "Deleted Movie"};
-  } catch (error) {
-    return {message: "Database Error: Failed to Delete Movie."};
-  }
+  revalidatePath("/");
+  redirect("/");
 }

@@ -92,3 +92,17 @@ export const editMovie = async ({id, title, cover, publishing_year}: Movie) => {
     return null;
   }
 };
+
+export const removeMovie = async (id: string) => {
+  try {
+    const result = await db.movie.delete({
+      where: {
+        id,
+      },
+    });
+
+    return result;
+  } catch (error) {
+    return null;
+  }
+};
