@@ -12,8 +12,8 @@ export default async function UpdateMoviePage({params: {movieId}}: {params: {mov
   }
 
   return (
-    <section className="flex flex-col gap-y-[120px]">
-      <h2 className="mt-[120px] text-5xl font-semibold leading-[56px]">Edit movie </h2>
+    <section className="flex flex-col gap-y-8 md:gap-y-[120px]">
+      <h2 className="mt-8 px-8 text-5xl font-semibold leading-[56px] lg:mt-[120px]">Edit movie </h2>
       <div className="flex items-start gap-x-[127px]">
         <UpdateForm movie={movie} />
       </div>

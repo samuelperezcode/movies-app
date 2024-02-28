@@ -13,7 +13,7 @@ interface CardProps {
 export function Card({id, title, cover, publishing_year}: CardProps) {
   return (
     <Link
-      className="flex h-[504px] w-[282px] flex-col items-start rounded-xl bg-card"
+      className="mx-auto flex h-[504px] w-[282px] flex-col items-start rounded-xl bg-card"
       href={`/${id}`}
     >
       <div className="mx-auto mt-2 h-[400px] w-[266px]">
@@ -34,5 +34,5 @@ export function Card({id, title, cover, publishing_year}: CardProps) {
 }
 
 export function CardSkeleton() {
-  return <Skeleton className="h-[504px] w-[282px]" />;
+  return <Skeleton className="mx-auto h-[504px] w-[282px]" />;
 }

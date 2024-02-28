@@ -17,8 +17,11 @@ export default function MovieForm() {
   const [cover, setCover] = useState<string>("");
 
   return (
-    <form action={dispatch} className="flex items-start gap-x-[127px]">
-      <div className="relative h-[504px] w-[473px] rounded-[10px] border-2 border-dotted border-white bg-input">
+    <form
+      action={dispatch}
+      className="mx-auto flex flex-col items-start gap-x-[127px] gap-y-8 px-8 md:gap-x-8 lg:mx-0 lg:flex-row"
+    >
+      <div className="relative h-[504px] w-72 rounded-[10px] border-2 border-dotted border-white bg-input sm:w-[473px]">
         <ImageUpload
           onChange={(url) => {
             if (url) {
@@ -29,7 +32,7 @@ export default function MovieForm() {
         <input
           readOnly
           required
-          className="absolute bottom-2 left-[50px] w-[373px] bg-input text-primary outline-none"
+          className="absolute bottom-2 left-10 w-52 bg-input text-primary outline-none sm:left-[50px] sm:w-[373px]"
           name="cover"
           type="text"
           value={cover}

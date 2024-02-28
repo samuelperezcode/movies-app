@@ -40,8 +40,8 @@ export default async function HomePage({
         </section>
       ) : (
         <>
-          <header className="flex items-center justify-between py-[120px]">
-            <div className="flex items-center gap-x-2">
+          <header className="flex flex-col items-center justify-between  px-8 py-[120px] md:flex-row lg:px-0">
+            <div className="flex items-center gap-x-2 ">
               <h2 className="text-5xl font-semibold leading-[56px]">My Movies</h2>
               <Link href="/create-movie">
                 <PlusCircle className="h-8 w-8" />
