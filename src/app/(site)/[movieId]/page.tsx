@@ -16,10 +16,16 @@ export default async function MoviePage({params: {movieId}}: {params: {movieId: 
   }
 
   return (
-    <section className="h-full w-full">
+    <section className="h-full w-full pb-40">
       <div className="flex h-full w-full items-start gap-x-16 pt-[120px]">
         <div>
-          <Image alt={`cover of ${movie.title}`} height={500} src={movie.cover} width={250} />
+          <Image
+            alt={`cover of ${movie.title}`}
+            className="h-full rounded-xl object-cover object-center"
+            height={400}
+            src={movie.cover}
+            width={266}
+          />
         </div>
         <div className="flex flex-col items-start gap-y-4">
           <h2 className="text-5xl font-semibold leading-[56px]">{movie.title}</h2>

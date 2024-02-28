@@ -20,7 +20,7 @@ export default function UpdateForm({movie}: {movie: Movie}) {
 
   return (
     <form action={dispatch} className="flex items-start gap-x-[127px]">
-      <div className="h-[504px] w-[473px] rounded-[10px] border-2 border-dotted border-white bg-secondary">
+      <div className="relative h-[504px] w-[473px] rounded-[10px] border-2 border-dotted border-white bg-secondary">
         <ImageUpload
           onChange={(url) => {
             if (url) {
@@ -28,7 +28,14 @@ export default function UpdateForm({movie}: {movie: Movie}) {
             }
           }}
         />
-        <input readOnly required className="text-black" name="cover" type="text" value={cover} />
+        <input
+          readOnly
+          required
+          className="absolute bottom-2 left-[50px] w-[373px] bg-input text-primary outline-none"
+          name="cover"
+          type="text"
+          value={cover}
+        />
       </div>
       <div className="flex flex-col items-center gap-y-4">
         <Input

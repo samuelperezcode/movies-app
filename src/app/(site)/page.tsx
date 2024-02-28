@@ -27,7 +27,7 @@ export default async function HomePage({
   return (
     <>
       {emptyState ? (
-        <section className="grid h-full place-content-center gap-10">
+        <section className="grid place-content-center gap-10 pb-[248px] pt-[120px]">
           <h2 className=" text-5xl font-semibold leading-[56px]">Your movie list is empty</h2>
           <div className="flex items-center justify-center gap-4">
             <Link

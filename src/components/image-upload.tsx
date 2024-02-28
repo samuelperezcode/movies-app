@@ -10,6 +10,7 @@ interface ImageUploadProps {
 export function ImageUpload({onChange}: ImageUploadProps) {
   return (
     <UploadDropzone
+      className="h-full"
       endpoint="movieCover"
       onClientUploadComplete={(res) => {
         const {url} = res[0];
