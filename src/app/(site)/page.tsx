@@ -7,7 +7,7 @@ import {buttonVariants} from "@/components/ui/button";
 import {cn} from "@/lib/utils";
 import {getMoviesPages} from "@/utils/services/movies";
 
-import {MovieList} from "./_components/movie-list";
+import {MovieList, MovieListSekeleton} from "./_components/movie-list";
 import Pagination from "./_components/pagination";
 
 export default async function HomePage({
@@ -50,7 +50,7 @@ export default async function HomePage({
             <LogoutForm />
           </header>
 
-          <Suspense key={currentPage} fallback={<p>Loading...</p>}>
+          <Suspense key={currentPage} fallback={<MovieListSekeleton />}>
             <MovieList currentPage={currentPage} />
           </Suspense>
           <div className="flex w-full justify-center pt-[120px]">

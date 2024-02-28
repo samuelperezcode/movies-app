@@ -73,6 +73,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-shadow": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/require-await": "off",

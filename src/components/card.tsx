@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import {Skeleton} from "./ui/skeleton";
+
 interface CardProps {
   id: string;
   title: string;
@@ -29,4 +31,16 @@ export function Card({id, title, cover, publishing_year}: CardProps) {
       </div>
     </Link>
   );
+}
+
+export function CardSkeleton() {
+  return <Skeleton className="h-[504px] w-[282px]" />;
+}
+
+{
+  /* <Link
+  className="flex h-[504px] w-[282px] flex-col items-start rounded-xl bg-card"
+  href={`/${id}`}
+/>;
+ */
 }
