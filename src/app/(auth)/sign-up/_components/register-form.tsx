@@ -3,12 +3,12 @@ import {useFormState, useFormStatus} from "react-dom";
 import {AlertCircleIcon} from "lucide-react";
 
 import {Button} from "@/components/ui/button";
-import {login} from "@/utils/actions/auth";
+import {register} from "@/utils/actions/auth";
 import {Input} from "@/components/input";
 
-export default function LoginForm() {
+export function RegisterForm() {
   const initialState = {message: "", errors: {}};
-  const [errorMessage, dispatch] = useFormState(login, initialState);
+  const [errorMessage, dispatch] = useFormState(register, initialState);
 
   return (
     <form action={dispatch} className="flex flex-col items-center justify-center gap-y-6">
@@ -58,7 +58,7 @@ function LoginButton() {
 
   return (
     <Button aria-disabled={pending} size="login" type="submit" variant="login">
-      Login
+      Create Account
     </Button>
   );
 }

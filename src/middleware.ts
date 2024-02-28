@@ -3,7 +3,7 @@ import type {NextRequest} from "next/server";
 import {NextResponse} from "next/server";
 
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname === "/sign-in") return;
+  if (request.nextUrl.pathname === "/sign-in" || request.nextUrl.pathname === "/sign-up") return;
   const currentUser = request.cookies.get("auth-session")?.value;
 
   if (currentUser) {
