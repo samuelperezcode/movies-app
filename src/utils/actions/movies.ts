@@ -19,7 +19,7 @@ interface State {
 export const addMovie = async (prevState: State, formData: FormData) => {
   const validatedFields = CreateMovieSchema.safeParse({
     title: formData.get("title") as string,
-    cover: "/cover.jpg",
+    cover: formData.get("cover"),
     publishing_year: Number(formData.get("year") as string),
   });
 
@@ -45,7 +45,7 @@ export const addMovie = async (prevState: State, formData: FormData) => {
 export const updateMovie = async (id: string, prevState: State, formData: FormData) => {
   const validatedFields = UpdateMovieSchema.safeParse({
     title: formData.get("title") as string,
-    cover: "/cover.jpg",
+    cover: formData.get("cover"),
     publishing_year: Number(formData.get("year") as string),
   });
 

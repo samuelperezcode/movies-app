@@ -1,5 +1,7 @@
 import type {Metadata} from "next";
 
+import {Toaster} from "sonner";
+
 import "./globals.css";
 import {font} from "@/lib/fonts";
 
@@ -11,7 +13,10 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={`${font.className} dark h-full bg-background antialiased`}>{children}</body>
+      <body className={`${font.className} dark h-full bg-background antialiased`}>
+        {children}
+        <Toaster closeButton richColors />
+      </body>
     </html>
   );
 }
