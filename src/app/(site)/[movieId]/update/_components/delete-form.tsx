@@ -6,7 +6,7 @@ import {deleteMovie} from "@/utils/actions/movies";
 
 export function DeleteForm({id}: {id: string}) {
   const deleteMovieId = deleteMovie.bind(null, id);
-  const [state, dispatch] = useFormState(deleteMovieId, {message: ""});
+  const [state, dispatch] = useFormState(deleteMovieId, undefined);
 
   return (
     <form action={dispatch}>
