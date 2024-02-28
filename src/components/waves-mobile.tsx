@@ -1,7 +1,7 @@
 export function WavesMobile() {
   return (
     <svg
-      className="block sm:hidden"
+      className="block w-full sm:hidden"
       fill="none"
       height="111"
       viewBox="0 0 428 111"

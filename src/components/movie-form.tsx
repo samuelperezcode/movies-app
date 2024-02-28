@@ -39,8 +39,20 @@ export default function MovieForm() {
         />
       </div>
       <div className="flex flex-col items-center gap-y-4">
-        <Input isRequired name="title" placeholder="Title" type="text" onError />
-        <Input isRequired name="year" placeholder="Publishing year" type="text" onError />
+        <Input
+          isRequired
+          name="title"
+          placeholder="Title"
+          type="text"
+          onError={!!state.errors?.title}
+        />
+        <Input
+          isRequired
+          name="year"
+          placeholder="Publishing year"
+          type="text"
+          onError={!!state.errors?.publishing_year}
+        />
         <div className="flex w-full items-center justify-between">
           <Link className={cn(buttonVariants({variant: "outline", size: "lg"}))} href="/">
             Cancel

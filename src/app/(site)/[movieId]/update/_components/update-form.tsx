@@ -47,7 +47,7 @@ export default function UpdateForm({movie}: {movie: Movie}) {
           name="title"
           placeholder="Title"
           type="text"
-          onError
+          onError={!!state.errors?.title}
         />
         <Input
           isRequired
@@ -55,7 +55,7 @@ export default function UpdateForm({movie}: {movie: Movie}) {
           name="year"
           placeholder="Publishing year"
           type="text"
-          onError
+          onError={!!state.errors?.publishing_year}
         />
         <div className="flex w-full items-center justify-between">
           <Link
